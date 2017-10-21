@@ -30,7 +30,7 @@ def main():
     b = Variable(b, requires_grad = True)
     
     y = x.dot(w)+b # type: Variable
-    
+
     # two ways to change the shape of tensor or variable
     y2 = torch.mm(torch.pow(x,2).unsqueeze(0),w.view(-1,1)) + torch.sigmoid(b)
     
