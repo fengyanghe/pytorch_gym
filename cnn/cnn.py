@@ -54,6 +54,11 @@ class cnn(nn.Module):
 
 def test_acu(model,test_data):
     x,y = test_data.test_data.type(torch.FloatTensor),torch.LongTensor(test_data.test_labels)
+    testids = np.random.random_integers(0,x.size(0),200)
+    x = x[testids,:,:]
+    y = y.view(-1,1)[testids,:].squeeze()
+    # just select 200 test samples randomly.
+    
     model.eval()
     if torch.cuda.is_available():
         x,y = Variable(x.cuda()),Variable(y.cuda())

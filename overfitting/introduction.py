@@ -2,7 +2,7 @@
 #coding:utf-8
 """
   Author:  fyh --<>
-  Purpose: pytorch studying
+  Purpose: 1.two ways to construct networks; 2. the example of overfitting.
   Created: 2017年07月04日
 """
 
@@ -20,7 +20,7 @@ def draw(x,y,y_):
     plt.cla()
     plt.scatter(d_x,d_y)
     plt.plot(d_x,d_y_, color='r', lw=4)
-    plt.pause(0.3)
+    plt.pause(0.01)
 
 def cuda2numpy(x):
     return x.data.cpu().numpy()
@@ -52,7 +52,7 @@ if __name__ == '__main__':
     loss = torch.nn.MSELoss(size_average=True)
     
     plt.ion()
-    for i in range(100000):
+    for i in range(500001):
         opt.zero_grad()
         y_ = net(x)
         loss_data = loss(y_,y)
