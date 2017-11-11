@@ -18,6 +18,7 @@ import sys
 import torch.optim as Opt
 from PIL import Image
 import torchvision.transforms as transforms
+import visualization as vl
 
 get_i_image = 6 # which number you want to create image 
 
@@ -48,6 +49,9 @@ if __name__ == '__main__':
     for i in range(10000):
         y_ = trained_model(train_x)
         l = loss(y_,test_y) #type: Variable
+        if i == 0:
+            vl.make_dot(l).view()
+
         opt.zero_grad()
         l.backward()
         opt.step()
