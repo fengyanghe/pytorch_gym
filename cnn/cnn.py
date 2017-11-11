@@ -5,7 +5,7 @@
   Purpose: basic cnn example using pytorch 0.2
   Created: 2017年09月03日
 """
-
+import matplotlib.pyplot as plt
 import numpy as np
 import torch
 from torch.autograd import Variable
@@ -50,11 +50,11 @@ class cnn(nn.Module):
         fc2 = F.relu(self.fc2(pool2.view(batchsize,-1)))
         fc2 = F.dropout(fc2,p = 0.5)
         fc3 = self.fc3(fc2)
-        return fc3
+        return F.softmax(fc3)
 
 def test_acu(model,test_data):
     x,y = test_data.test_data.type(torch.FloatTensor),torch.LongTensor(test_data.test_labels)
-    testids = np.random.random_integers(0,x.size(0),200)
+    testids = np.random.random_integers(0,x.size(0)-1,200)
     x = x[testids,:,:]
     y = y.view(-1,1)[testids,:].squeeze()
     # just select 200 test samples randomly.
@@ -88,6 +88,8 @@ def main():
     best_model,best_acu = cnn_model,0
    
     for _ in range(10):
+        if best_acu == 1:
+            break          
         for i, d in enumerate(data_loader):
             op.zero_grad()
             if is_gpu:
@@ -110,10 +112,19 @@ def main():
                     best_acu = acu
                     best_model = cnn_model
                 print('step {0} accurate is {1}'.format(i,best_acu))
+                              
     return best_acu,best_model
 
 if __name__ == '__main__':
-    for i in range(100):
-        main()
-        
-    
+    from cnn import cnn # Make cnn as the module's cnn but not  __main__, otherwise, other program's __main__ can't load saved model.
+    best_model = None # type: nn.Module
+    best_acu = 0
+    for i in range(1):
+        if best_acu == 1:
+            break        
+        acu, model = main()
+        if best_acu < acu:
+            best_acu = acu
+            best_model = model
+         
+    torch.save(best_model,'best_model')
