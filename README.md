@@ -3,26 +3,26 @@ learn pytorch by some tutorials for learning group.
 
 ## first step
 
-> Variable and Autograd
+### Variable and Autograd
 
-> construct the regression model by Linear class
+### construct the regression model by Linear class
 
-> construct the softmax model or logistic regression by pytorch
+### construct the softmax model or logistic regression by pytorch
 
-> cnn
+### cnn
 
     1. cnn for mnist
 
     2. find best image for trained cnn
 
-> tsne: implement tsne by pytorch 
+### tsne: implement tsne by pytorch 
 
-necessary for tensorboardx support, pip install tensorboardX
+    necessary for tensorboardx support, pip install tensorboardX
 
-> rnn and lstm
+### rnn and lstm
 
     1. rnn for mnist
 
     2. create poetry by rnn and lstm, including embeding and bidirection rnn or lstm
 
-> bidirectional lstm
+### bidirectional lstm
