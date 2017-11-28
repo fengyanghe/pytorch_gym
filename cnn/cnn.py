@@ -53,7 +53,9 @@ class cnn(nn.Module):
         return F.softmax(fc3)
 
 def test_acu(model,test_data):
-    x,y = test_data.test_data.type(torch.FloatTensor),torch.LongTensor(test_data.test_labels)
+    x,y = test_data.test_data.type(torch.FloatTensor)/255,torch.LongTensor(test_data.test_labels)
+    #mnist dont use transform on test_data!!!!!!!!
+    
     testids = np.random.random_integers(0,x.size(0)-1,200)
     x = x[testids,:,:]
     y = y.view(-1,1)[testids,:].squeeze()

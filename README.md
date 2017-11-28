@@ -15,6 +15,10 @@ learn pytorch by some tutorials for learning group.
 
     2. find best image for trained cnn
 
+> tsne: implement tsne by pytorch 
+
+necessary for tensorboardx support, pip install tensorboardX
+
 > rnn and lstm
 
     1. rnn for mnist
