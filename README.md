@@ -19,6 +19,10 @@ learn pytorch by some tutorials for learning group.
 
     necessary for tensorboardx support, pip install tensorboardX
 
+### autoencoder
+
+    the basic auto encoder used conv and deconv 
+
 ### rnn and lstm
 
     1. rnn for mnist
