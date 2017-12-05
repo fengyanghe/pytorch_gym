@@ -48,7 +48,7 @@ def a2t(a:np.ndarray) -> torch.FloatTensor:
     return torch.from_numpy(a).float()
 def t2v(v):
     if torch.cuda.is_available():
-        v = v.cuda()
+        v = v.cuda() 
     return Variable(v)
 
 
