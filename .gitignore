@@ -1,2 +1,6 @@
 
 *.pyc
+
+attention/log/
+
+*/log/
