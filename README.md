@@ -29,4 +29,6 @@ learn pytorch by some tutorials for learning group.
 
     2. create poetry by rnn and lstm, including embeding and bidirection rnn or lstm
 
-### bidirectional lstm
+    3. attention
+
+### Reinforcement Learning

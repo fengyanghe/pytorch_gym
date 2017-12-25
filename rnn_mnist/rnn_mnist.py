@@ -145,7 +145,7 @@ def main():
             
             if i % 100 == 0:
                 acu = test_acu(rnn_model, test_data)
-                print('step {0} accurate is {1}'.format(i,acu))
+                print('step {0} loss is {1} accurate is {2}'.format(i,l.data.cpu().numpy(),acu))
                 writer.add_scalar('acc',acu,i*(_+1))
 
     writer.close()
