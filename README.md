@@ -32,3 +32,15 @@ learn pytorch by some tutorials for learning group.
     3. attention
 
 ### Reinforcement Learning
+
+
+### GAN
+   
+    1. basic gan
+   
+    2. wgan
+
+
+
+
+
